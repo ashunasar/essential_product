@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'procuct.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(
@@ -108,20 +109,40 @@ class HomePage extends StatelessWidget {
                 child: ListView(
                   scrollDirection: Axis.horizontal,
                   children: [
-                    ProductCard(
-                      imagePath: "assets/product1.png",
-                      scale: 1 / 1.16,
-                      title: "Shea Body",
-                      subTitle: "Butter",
-                      price: "29",
+                    GestureDetector(
+                      onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Product(
+                              imagePath: 'assets/product1.png',
+                              name: 'Shea Body',
+                              price: '30'),
+                        ),
+                      ),
+                      child: ProductCard(
+                        imagePath: "assets/product1.png",
+                        scale: 1 / 1.16,
+                        title: "Shea Body",
+                        subTitle: "Butter",
+                        price: "30",
+                      ),
                     ),
                     SizedBox(width: 40),
-                    ProductCard(
-                      imagePath: "assets/product2.png",
-                      scale: 1 / 0.19,
-                      title: "Body Mist",
-                      subTitle: "Care",
-                      price: "39",
+                    GestureDetector(
+                      onTap: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Product(
+                                  imagePath: 'assets/product2_old.png',
+                                  name: 'Body Mist',
+                                  price: '19'))),
+                      child: ProductCard(
+                        imagePath: "assets/product2.png",
+                        scale: 1 / 0.19,
+                        title: "Body Mist",
+                        subTitle: "Care",
+                        price: "19",
+                      ),
                     ),
                   ],
                 ),
@@ -169,7 +190,7 @@ class HomePage extends StatelessWidget {
                         color: Color(0xfff0e2d5),
                         spreadRadius: -20),
                   ],
-                ), // width: 250,
+                ),
                 child: ListView(
                   scrollDirection: Axis.horizontal,
                   children: [
